@@ -5,7 +5,6 @@ import (
 	"TestTask/repository"
 	"TestTask/server"
 	"TestTask/service"
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	"github.com/spf13/viper"
 	"log"
@@ -16,9 +15,7 @@ func main() {
 	if err := InitConfig(); err != nil {
 		log.Fatalf("Error of reading config file: %s \n", err.Error())
 	}
-	if err2 := godotenv.Load(); err2 != nil {
-		log.Fatalf("Error of reading config file: %s \n", err2.Error())
-	}
+
 	db, err := repository.NewDB(repository.Config{
 		Host:     viper.GetString("db.host"),
 		Port:     viper.GetString("db.port"),
