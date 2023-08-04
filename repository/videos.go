@@ -15,7 +15,7 @@ func NewVideosRepository(db *sqlx.DB) *VideosRepository {
 }
 
 func (Video *VideosRepository) GetVideos() ([]models.Videos, error) {
-	query := "SELECT id,title, link FROM Video"
+	query := "SELECT id,tittle, link FROM video"
 
 	rows, err := Video.db.Query(query)
 	if err != nil {
