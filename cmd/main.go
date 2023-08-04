@@ -6,7 +6,6 @@ import (
 	"TestTask/server"
 	"TestTask/service"
 	_ "github.com/lib/pq"
-	"github.com/spf13/viper"
 	"log"
 	"os"
 )
@@ -30,7 +29,7 @@ func main() {
 	handlers := handler.NewHandler(services)
 
 	serv := new(server.Server)
-	if err := serv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
+	if err := serv.Run(os.Getenv("port"), handlers.InitRoutes()); err != nil {
 		panic(err)
 	}
 
