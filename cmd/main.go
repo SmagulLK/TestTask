@@ -17,11 +17,11 @@ func main() {
 	}
 
 	db, err := repository.NewDB(repository.Config{
-		Host:     viper.GetString("db.host"),
-		Port:     viper.GetString("db.port"),
-		Sslmode:  viper.GetString("db.sslmode"),
-		Username: viper.GetString("db.username"),
-		DbName:   viper.GetString("db.dbname"),
+		Host:     os.Getenv("db.host"),
+		Port:     os.Getenv("db.port"),
+		Sslmode:  os.Getenv("db.sslmode"),
+		Username: os.Getenv("db.username"),
+		DbName:   os.Getenv("db.dbname"),
 		Password: os.Getenv("DB_PASSWORD"),
 	})
 	if err != nil {
