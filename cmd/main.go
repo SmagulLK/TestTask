@@ -24,14 +24,7 @@ func main() {
 		DbName:   os.Getenv("db_dbname"),
 		Password: os.Getenv("DB_PASSWORD"),
 	})
-	//db, err := repository.NewDB(repository.Config{
-	//	Host:     "containers-us-west-133.railway.app",
-	//	Port:     "7436",
-	//	Sslmode:  "require",
-	//	Username: "postgres",
-	//	DbName:   "railway",
-	//	Password: "kdIxEVV3CYBY0nQTCxjm",
-	//})
+
 	if err != nil {
 		log.Fatalf("Error of connecting to DB: %s \nx", err.Error())
 	}
